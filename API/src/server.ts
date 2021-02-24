@@ -1,10 +1,11 @@
 import 'reflect-metadata';
-import express = require('express');
-import './database';
+import express from 'express';
+import './database'
+import { router } from './database/routes';
 
 const app = express();
 
+app.use(express.json());
+app.use(router);
 
-app.get('/', (req, res) => {
-    
-})
+app.listen(3333, () => console.log('Running!'))
